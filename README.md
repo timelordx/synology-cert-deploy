@@ -117,3 +117,8 @@ new_fullchain='/volume1/docker/caddy/data/caddy/certificates/acme-v02.api.letsen
 ```
 
 With the above configuration, the script will deploy a wildcard TLS certificate `*.example.com` to your Synology DSM.
+
+For additional details on setting up Caddy with an ACME-DNS provider, please refer to the following links:
+
+* [ACME-DNS module for Caddy Server](https://github.com/caddy-dns/acmedns)
+* [NameCheap with ACME-DNS Provider](https://caddy.community/t/namecheap-with-acme-dns-provider/18944)
