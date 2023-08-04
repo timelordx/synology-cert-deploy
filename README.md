@@ -101,13 +101,13 @@ services:
 example.com, *.example.com {
 
 	tls {
-		dns acmedns /path/to/acmedns-example.com.json
+		...
 	}
 
 	...
 }
 ```
-You can proceed to configure the `synology-cert-deploy.sh` script:
+you can proceed to configure the `synology-cert-deploy.sh` script:
 
 `SCRIPT CONFIG`:
 
@@ -118,7 +118,10 @@ new_fullchain='/volume1/docker/caddy/data/caddy/certificates/acme-v02.api.letsen
 
 With the above configuration, the script will deploy a wildcard TLS certificate `*.example.com` to your Synology DSM.
 
+Ensure you run the script with root privileges (using sudo) to avoid any permission issues during the certificate deployment process. For automated execution, consider setting up the script as a Scheduled Task in Task Scheduler to run as root once a week.
+
 For additional details on setting up Caddy with an ACME-DNS provider, please refer to the following links:
 
 * [ACME-DNS module for Caddy Server](https://github.com/caddy-dns/acmedns)
 * [NameCheap with ACME-DNS Provider](https://caddy.community/t/namecheap-with-acme-dns-provider/18944)
+* [Using Caddy to deploy / renew Synology DSM certificate](https://caddy.community/t/using-caddy-to-deploy-renew-synology-dsm-certificate/20695)
