@@ -125,3 +125,7 @@ For additional details on setting up Caddy with an ACME-DNS provider, please ref
 * [ACME-DNS module for Caddy Server](https://github.com/caddy-dns/acmedns)
 * [NameCheap with ACME-DNS Provider](https://caddy.community/t/namecheap-with-acme-dns-provider/18944)
 * [Using Caddy to deploy / renew Synology DSM certificate](https://caddy.community/t/using-caddy-to-deploy-renew-synology-dsm-certificate/20695)
+
+More details about Caddy as a certificate manager:
+
+* [Using Caddy to keep certificates renewed](https://caddy.community/t/using-caddy-to-keep-certificates-renewed/7525)
