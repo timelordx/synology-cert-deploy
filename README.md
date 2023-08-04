@@ -113,7 +113,7 @@ You can proceed to configure the `synology-cert-deploy.sh` script:
 
 ```
 new_key='/volume1/docker/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/wildcard_.example.com/wildcard_.example.com.key'
- new_fullchain='/volume1/docker/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/wildcard_.example.com/wildcard_.example.com.crt'
+new_fullchain='/volume1/docker/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/wildcard_.example.com/wildcard_.example.com.crt'
 ```
 
 With the above configuration, the script will deploy a wildcard TLS certificate `*.example.com` to your Synology DSM.
