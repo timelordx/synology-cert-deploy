@@ -42,6 +42,7 @@ Before running the script, please edit the `SCRIPT CONFIG` section and provide t
    ```
 
 3. Services and Packages to Restart:
+      
    If there are any additional services or packages that need to be restarted after the certificate deployment, add them to the `services_to_restart` or `packages_to_restart` array. Separate each service/package name with a space. 
    
    Example:
