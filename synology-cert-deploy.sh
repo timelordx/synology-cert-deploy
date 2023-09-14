@@ -23,7 +23,7 @@
 # SOFTWARE.
 #
 
-VERSION=0.1
+VERSION=0.2
 SCRIPT_NAME="Synology Certificate Deployer v${VERSION}"
 
 ## Inspired by people and code in:
@@ -77,20 +77,43 @@ Before running the script, please edit the 'SCRIPT CONFIG' section and provide
 the following information:
 
 1. Private Key Location:
-   Set the variable 'new_key' to the location of the new private key you want
-   to deploy. 
+   To specify the location of the new private key, you have two options:
+
+   a. Manual Assignment: Set the script variable 'new_key' to the desired
+      file path.
    
    Example:
    
       new_key="/path/to/your/privkey.pem"
 
+   b. Environment Variable: Alternatively, use 'SYNO_HELPER_KEY'. If it exists
+      and isn't empty, it'll be automatically used for 'new_key'.
+
+   Example:
+
+      export SYNO_HELPER_KEY="/path/to/your/privkey.pem"
+
+   If both methods are used, the external environment variable takes precedence.
+
 2. Full Certificate Chain Location:
-   Set the variable 'new_fullchain' to the location of the file containing the
-   full certificate chain (server certificate and intermediate certificates). 
+   To specify the location of the file containing the full certificate chain
+   (server certificate and intermediate certificates), you have two options:
+
+   a. Manual Assignment: set the script variable 'new_fullchain' to the desired
+      file path.
    
    Example:
    
       new_fullchain="/path/to/your/fullchain.pem"
+
+   b. Environment Variable: Alternatively, use 'SYNO_HELPER_FULLCHAIN'. If it
+      exists and isn't empty, it'll be automatically used for 'new_fullchain'.
+
+   Example:
+
+      export SYNO_HELPER_FULLCHAIN="/path/to/your/fullchain.pem"
+
+   If both methods are used, the external environment variable takes precedence.
 
 3. Services and Packages to Restart:
    If there are any additional services or packages that need to be restarted
@@ -175,6 +198,11 @@ for arg in "$@"; do
 done
 
 [[ $dry_run -eq 1 ]] && printf '\n[!!!] Running a trial run (no actual changes are being applied right now)!\n\n'
+
+## External environment variables SYNO_HELPER_KEY and SYNO_HELPER_FULLCHAIN 
+## take precendence if they exist and have non-empty values
+[[ -n "$SYNO_HELPER_KEY"       ]] && new_key="$SYNO_HELPER_KEY"
+[[ -n "$SYNO_HELPER_FULLCHAIN" ]] && new_fullchain="$SYNO_HELPER_FULLCHAIN"
 
 ## COLLECT NEW PEM FILES
 ##
